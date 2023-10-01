@@ -1,0 +1,41 @@
+.home{
+    /* min-width: fit-content; */
+    /* width: 500px; */
+    /* border: 1px solid; */
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.home h1{
+    text-align: center;
+}
+
+.home table{
+    border: 1px solid;
+    padding: 5px;
+}
+.home table td,th{
+    border: 1px solid;
+    margin: 0;
+    padding: 8px;
+    /* min-width:  fit-content; */
+    text-wrap: nowrap;
+}
+.actions{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    font-weight: bold;
+}
+.actions #deleteicon{
+    color: black;
+    -webkit-text-stroke: 1px  red;
+}
+.actions #editicon{
+    color: black;
+    -webkit-text-stroke: 1px  blue;
+
+}

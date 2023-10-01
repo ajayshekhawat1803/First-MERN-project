@@ -1,21 +1,53 @@
 header{
     background-color: rgb(85, 83, 81);
     padding: 15px;
+    display: flex;
+    align-items: center;
 }
+#logo{
+    /* width: ; */
+    height: 40px;
+    margin-right: 50px;
+    padding-bottom: 3px;
+}
+#logo img{
+    height: 100%;
+    object-fit: cover;
+    filter: invert(100%);
+}
+
 header ul{
     display: flex;
     gap: 35px;
     list-style: none;
+    align-items: center;
 }
 header ul a{
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
 }
 header ul a:hover{
     color: red;
 }
+
+.nav-right{
+    padding-right: 50px;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+#username{
+    color: rgb(162, 255, 0);
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-left: 10px;
+}
+
 footer{
     width: 100%;
     background-color: rgb(85, 83, 81);
