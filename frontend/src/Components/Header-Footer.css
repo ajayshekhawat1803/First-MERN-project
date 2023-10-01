@@ -1,0 +1,27 @@
+header{
+    background-color: rgb(85, 83, 81);
+    padding: 15px;
+}
+header ul{
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+header ul a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+header ul a:hover{
+    color: red;
+}
+footer{
+    width: 100%;
+    background-color: rgb(85, 83, 81);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
