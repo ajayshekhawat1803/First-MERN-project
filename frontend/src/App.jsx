@@ -10,6 +10,7 @@ import Login from './Components/Login'
 import AddProduct from './Components/AddProduct'
 import Home from './Components/Home'
 import UpdateProduct from './Components/UpdateProduct'
+import Profile from './Components/Profile'
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
             <Route path='/add-product' element={<AddProduct/>} />
             <Route path='/update/:id' element={<UpdateProduct/>} />
             <Route path='/logout' element={<h1>This is Logout PAge</h1>} />
-            <Route path='/profile' element={<h1>This is Profile PAge</h1>} />
+            <Route path='/profile' element={<Profile/>} />
           </Route>
 
           <Route path='/signup' element={<SignUp />} />

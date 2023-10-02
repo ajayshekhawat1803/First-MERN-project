@@ -3,8 +3,17 @@ import cors from 'cors'
 import './db/config.js'
 import user from "./db/user.js";
 import product from "./db/product.js";
+import multer from "multer";
+import path from "path"
 
-// import mongoose from "mongoose";
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// console.log(__dirname);
 // const connectDB = async () => {
 //     mongoose.connect("mongodb://localhost:27017/e-com");
 //     const productSchema = new mongoose.Schema({})
@@ -18,14 +27,40 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use(express.static('uploads'));
+// app.use('/uploads', express.static('images'));
+
 app.get("/", (req, res) => {
     res.send("App is running")
 })
-app.post("/register", async (req, res) => {
-    let usertoregister = new user(req.body);
+// app.post("/register", async (req, res) => {
+//     let usertoregister = new user(req.body);
+//     let result = await usertoregister.save();
+//     result = result.toObject();
+//     delete result.password
+//     res.send(result)
+// })
+const storage = multer.diskStorage({
+    destination: "uploads/",
+    filename: function (req, file, callback) {
+        // Use the student's name as the filename and keep the original extension
+        const ext = path.extname(file.originalname);
+        const filename = req.body.name + ext;
+        callback(null, filename);
+    },
+})
+const upload = multer({ storage: storage });
+
+app.post("/register", upload.single("profilePic"), async (req, res) => {
+    const { name, email, password } = req.body;
+    const profilePic = req.file;
+    const profilePath = profilePic.path;
+    let usertoregister = new user({ name, email, password, profilePath })
     let result = await usertoregister.save();
     result = result.toObject();
     delete result.password
+    console.log(result);
     res.send(result)
 })
 
